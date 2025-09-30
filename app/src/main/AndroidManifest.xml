@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BravoLaboratoryExercise3MuseumAppPart1">
         <activity
+            android:name=".TickitingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tickiting"
+            android:theme="@style/Theme.BravoLaboratoryExercise3MuseumAppPart1" />
+        <activity
             android:name=".ExploreActivity"
             android:exported="false" />
         <activity

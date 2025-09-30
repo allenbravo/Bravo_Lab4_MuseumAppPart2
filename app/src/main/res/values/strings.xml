@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bravo  Laboratory Exercise #3 - Museum App Part 1</string>
+    <string name="title_activity_tickiting">TickitingActivity</string>
 </resources>
