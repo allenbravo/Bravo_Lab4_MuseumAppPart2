@@ -119,13 +119,13 @@ fun Ticketing(modifier: Modifier = Modifier) {
             }
         }
 
-        // Bottom row for total and checkout button
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(80.dp)
                 .background(Color(0xFFd29f1b))
-                .padding(horizontal = 20.dp, vertical = 10.dp), // Added vertical padding para hindi dikit
+                .padding(horizontal = 20.dp, vertical = 10.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
