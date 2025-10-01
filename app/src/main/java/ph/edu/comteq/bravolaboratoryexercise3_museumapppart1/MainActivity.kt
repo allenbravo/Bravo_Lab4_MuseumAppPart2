@@ -7,9 +7,19 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,13 +36,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ph.edu.comteq.bravolaboratoryexercise3_museumapppart1.ui.theme.BravoLaboratoryExercise3MuseumAppPart1Theme
 
-// Custom Fonts
-val playfairDisplay = FontFamily(
-    Font(R.font.playfairdisplayregular, weight = FontWeight.Normal)
+val playfairdisplayregular = FontFamily(
+    Font(R.font.playfairdisplayregular, FontWeight.Normal)
 )
 
 val optima = FontFamily(
-    Font(R.font.optima1, weight = FontWeight.Normal)
+    Font(R.font.optima1, FontWeight.Normal)
 )
 
 class MainActivity : ComponentActivity() {
@@ -40,109 +49,97 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            BravoLaboratoryExercise3MuseumAppPart1Theme {
-                Homepage()
+            BravoLaboratoryExercise3MuseumAppPart1Theme  {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    GalleryScreen(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-fun Homepage(modifier: Modifier = Modifier) {
+fun GalleryScreen(modifier: Modifier = Modifier) {
     val context = LocalContext.current
-
-    Box(
-        modifier = Modifier
+    Column(
+        modifier = modifier
             .fillMaxSize()
             .background(Color.Black)
+            .padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(64.dp))
 
         Image(
-            painter = painterResource(id = R.drawable.louvre),
-            contentDescription = "Louvre Museum",
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Gattery Logo",
             modifier = Modifier
-                .fillMaxWidth(0.9f)   // 90% width
-                .align(Alignment.Center) // gitna siya sa screen
+                .width(120.dp)
+                .height(120.dp)
+                .padding(bottom = 32.dp)
         )
-
 
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 40.dp),
-            contentAlignment = Alignment.TopCenter
+                .width(250.dp)
+                .height(400.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.logo),
-                contentDescription = "Gallery Logo",
-                modifier = Modifier.size(100.dp)
+                painter = painterResource(id = R.drawable.louvre),
+                contentDescription = "Louvre Museum",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
             )
-        }
 
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-                .padding(bottom = 60.dp),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
             Text(
                 text = "Experience Art",
-                fontFamily = playfairDisplay,
-                fontSize = 28.sp,
-                color = Color.White,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.width(250.dp) // lapad ng title
-            )
-
-            Spacer(modifier = Modifier.height(6.dp))
-
-            Text(
-                text = "We are thrilled to invite you to join us for an extraordinary event that will immerse you in the world of art.",
-                fontFamily = optima,
-                fontSize = 16.sp,
-                color = Color.White,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.width(300.dp) // lapad ng paragraph
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Button(
-                onClick = {
-                    val intent = Intent(context, ExploreActivity::class.java)
-                    context.startActivity(intent)
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD4AF37)),
-                shape = RoundedCornerShape(50.dp),
+                color = Color.White.copy(alpha = 0.8f),
+                fontFamily = playfairdisplayregular,
+                fontSize = 33.sp,
                 modifier = Modifier
-                    .width(220.dp) // lapad ng button
-                    .padding(vertical = 8.dp)
-            ) {
-                Text("Explore Now", color = Color.Black, fontFamily = optima)
-            }
+                    .align(Alignment.BottomCenter) // Align text to the bottom center of the Box
+                    .offset(y = (-5).dp) // Adjust this value to control the overlap amount
+            )
         }
-    }
-}
 
-@Composable
-fun ExploreScreen() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
-        contentAlignment = Alignment.Center
-    ) {
-        Text("Welcome to Explore Page", fontSize = 24.sp, color = Color.Black)
+        Spacer(modifier = Modifier.height(10.dp)) // Space after the overlapped section
+
+        Text(
+            text = "We are thrilled to invite you to join us for an extraordinary event that will immerse you in the world of art.",
+            color = Color.White.copy(alpha = 0.8f),
+            textAlign = TextAlign.Center,
+            fontFamily = optima,
+            fontSize = 16.sp,
+            lineHeight = 24.sp,
+            modifier = Modifier.padding(bottom = 16.dp) // Added bottom padding for the description
+        )
+
+        Button(
+            onClick = {
+                val intent = Intent(context, ExploreActivity::class.java)
+                context.startActivity(intent)
+            },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFFD4AF37),
+                contentColor = Color.Black
+            )
+        ) {
+            Text(
+                text = "Explore Now",
+                fontFamily = optima,
+                fontSize = 18.sp
+            )
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun HomepagePreview() {
+fun GalleryScreenPreview() {
     BravoLaboratoryExercise3MuseumAppPart1Theme {
-        Homepage()
+        GalleryScreen()
     }
 }
