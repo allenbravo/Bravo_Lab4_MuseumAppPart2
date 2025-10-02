@@ -100,13 +100,12 @@ fun GalleryScreen(modifier: Modifier = Modifier) {
                 fontFamily = playfairdisplayregular,
                 fontSize = 33.sp,
                 modifier = Modifier
-                    .align(Alignment.BottomCenter) // Align text to the bottom center of the Box
-                    .offset(y = (-5).dp) // Adjust this value to control the overlap amount
+                    .align(Alignment.BottomCenter)
+                    .offset(y = (-5).dp)
             )
         }
 
-        Spacer(modifier = Modifier.height(10.dp)) // Space after the overlapped section
-
+        Spacer(modifier = Modifier.height(10.dp))
         Text(
             text = "We are thrilled to invite you to join us for an extraordinary event that will immerse you in the world of art.",
             color = Color.White.copy(alpha = 0.8f),
@@ -114,7 +113,7 @@ fun GalleryScreen(modifier: Modifier = Modifier) {
             fontFamily = optima,
             fontSize = 16.sp,
             lineHeight = 24.sp,
-            modifier = Modifier.padding(bottom = 16.dp) // Added bottom padding for the description
+            modifier = Modifier.padding(bottom = 16.dp)
         )
 
         Button(

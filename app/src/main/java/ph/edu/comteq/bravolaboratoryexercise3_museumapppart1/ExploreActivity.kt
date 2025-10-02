@@ -55,7 +55,7 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .background(Color.Black)
             .padding(horizontal = 16.dp)
-            .statusBarsPadding() // Handle status bar insets
+            .statusBarsPadding()
 
     ) {
 
@@ -110,7 +110,7 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
                 Spacer(modifier = Modifier.width(4.dp))
 
                 Image(
-                    painter = painterResource(id = R.drawable.chevron_right), // Replace with your arrow icon
+                    painter = painterResource(id = R.drawable.chevron_right),
                     contentDescription = "Forward Arrow",
                     modifier = Modifier.size(24.dp)
                 )
@@ -129,7 +129,7 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
         ) {
             Column {
                 Image(
-                    painter = painterResource(id = R.drawable.renaissance), // Replace with your image
+                    painter = painterResource(id = R.drawable.renaissance),
                     contentDescription = "Renaissance Exhibition",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
@@ -161,7 +161,7 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
                     }
 
                     Column(
-                        modifier = Modifier.weight(1f) // Take remaining space
+                        modifier = Modifier.weight(1f)
                     ) {
                         Text(
                             text = "Renaissance Exhibition",
@@ -209,7 +209,7 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
                         containerColor = Color(0xFFD4AF37),
                         contentColor = Color.Black
                     ),
-                    shape = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp), // Rounded only at the bottom
+                    shape = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp),
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(56.dp)
