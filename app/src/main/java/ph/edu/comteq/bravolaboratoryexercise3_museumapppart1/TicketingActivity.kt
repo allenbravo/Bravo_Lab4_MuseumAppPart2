@@ -188,7 +188,7 @@ fun Ticketing(modifier: Modifier = Modifier) {
             ) {
                 Column {
                     Text(
-                        "Under 18s, Under 26s\nResidents, Museum Members",
+                        "Under 18s, Under 26s\nResidents of the EEA,\n Museum Members,\n Professionals",
                         color = Color.White,
                         fontSize = 14.sp
                     )
