@@ -204,7 +204,8 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
                 }
 
                 Button(
-                    onClick = { /* Handle visit gallery action */ },
+                    onClick = { val intent = Intent(context, ArtistsActivity::class.java)
+                        context.startActivity(intent) },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFD4AF37),
                         contentColor = Color.Black

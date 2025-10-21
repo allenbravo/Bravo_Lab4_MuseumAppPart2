@@ -72,7 +72,7 @@ fun Ticketing(modifier: Modifier = Modifier) {
                 .weight(1f)
                 .verticalScroll(rememberScrollState())
         ) {
-            //  TOP IMAGE
+            // TOP IMAGE
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
