@@ -93,7 +93,7 @@ fun ExhibitScreen() {
 
                 val artwork = artworksList[page]
 
-                
+
                 val pageOffset = (pagerState.currentPage - page + pagerState.currentPageOffset).absoluteValue
 
                 val rotation = pageOffset * 60f
